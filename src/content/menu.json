@@ -1,0 +1,84 @@
+{
+  "items": [
+    {
+      "id": "perro-maracay",
+      "name": { "es": "Perro Maracay", "en": "Perro Maracay" },
+      "description": {
+        "es": "El clásico venezolano con todos los toppings.",
+        "en": "The Venezuelan classic with all the toppings."
+      },
+      "price": "$8",
+      "image": "/images/menu/perro-maracay.jpg"
+    },
+    {
+      "id": "perro-especial",
+      "name": { "es": "Perro Especial", "en": "Special Dog" },
+      "description": {
+        "es": "Versión XL con queso fundido y tocineta.",
+        "en": "XL version with melted cheese and bacon."
+      },
+      "price": "$10",
+      "image": "/images/menu/perro-especial.jpg"
+    },
+    {
+      "id": "salchipapa",
+      "name": { "es": "Salchipapa", "en": "Salchipapa" },
+      "description": {
+        "es": "Papas con salchichas y salsas venezolanas.",
+        "en": "Fries topped with hot dog slices and Venezuelan sauces."
+      },
+      "price": "$9",
+      "image": "/images/menu/salchipapa.jpg"
+    },
+    {
+      "id": "cachapa",
+      "name": { "es": "Cachapa", "en": "Cachapa" },
+      "description": {
+        "es": "Panqueca dulce de maíz con queso de mano.",
+        "en": "Sweet corn pancake with fresh cheese."
+      },
+      "price": "$12",
+      "image": "/images/menu/cachapa.jpg"
+    },
+    {
+      "id": "tequenos",
+      "name": { "es": "Tequeños (6 uds)", "en": "Tequeños (6 pcs)" },
+      "description": {
+        "es": "Dedos de queso frito, el aperitivo venezolano.",
+        "en": "Fried cheese sticks — the Venezuelan appetizer."
+      },
+      "price": "$7",
+      "image": "/images/menu/tequenos.jpg"
+    },
+    {
+      "id": "empanada",
+      "name": { "es": "Empanada", "en": "Empanada" },
+      "description": {
+        "es": "De carne, pollo o queso. Crujiente y dorada.",
+        "en": "Beef, chicken, or cheese. Crispy and golden."
+      },
+      "price": "$5",
+      "image": "/images/menu/empanada.jpg"
+    },
+    {
+      "id": "patacon",
+      "name": { "es": "Patacón", "en": "Patacón" },
+      "description": {
+        "es": "Plátano frito relleno de carne mechada.",
+        "en": "Fried plantain stuffed with shredded beef."
+      },
+      "price": "$13",
+      "image": "/images/menu/patacon.jpg"
+    },
+    {
+      "id": "papas",
+      "name": { "es": "Papas Fritas", "en": "Fries" },
+      "description": {
+        "es": "Crujientes con sal venezolana.",
+        "en": "Crispy with Venezuelan salt."
+      },
+      "price": "$4",
+      "image": "/images/menu/papas.jpg"
+    }
+  ]
+}
