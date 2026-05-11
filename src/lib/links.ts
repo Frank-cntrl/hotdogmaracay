@@ -14,8 +14,11 @@ export const links = {
     // TODO: confirm exact street address (Google Maps blocks scraping; owner to fill in).
     address: "Queens, NY",
     coords: { lat: 40.7556909, lng: -73.882144 },
-    // TODO: confirm exact hours (Google Maps blocks scraping).
-    hours: "Check Google Maps for today's hours",
+    hours: [
+      { days: { es: "Lun – Jue", en: "Mon – Thu" }, time: "7 PM – 2 AM" },
+      { days: { es: "Vie – Sáb", en: "Fri – Sat" }, time: "7 PM – 4 AM" },
+      { days: { es: "Domingo", en: "Sunday" }, time: "7 PM – 2 AM" },
+    ],
   },
   contact: {
     phone: "+1 (347) 839-9352",

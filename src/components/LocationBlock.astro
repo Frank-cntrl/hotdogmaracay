@@ -37,10 +37,17 @@ const mapSrc = `https://www.google.com/maps?q=${lat},${lng}&hl=${locale}&z=16&ou
           <p class="text-lg">{links.cart.address}</p>
         </div>
         <div>
-          <div class="text-accent-yellow text-xs font-bold uppercase tracking-wider mb-1">
+          <div class="text-accent-yellow text-xs font-bold uppercase tracking-wider mb-2">
             {t(locale, "location.hoursLabel")}
           </div>
-          <p class="text-lg">{links.cart.hours}</p>
+          <dl class="space-y-1 text-base">
+            {links.cart.hours.map((row) => (
+              <div class="flex items-baseline justify-between gap-4 border-b border-white/5 pb-1">
+                <dt class="text-text-muted">{row.days[locale]}</dt>
+                <dd class="font-bold tabular-nums">{row.time}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
         <div class="flex flex-wrap gap-3">
           <a href={links.googleMaps} target="_blank" rel="noopener"
