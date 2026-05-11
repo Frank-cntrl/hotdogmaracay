@@ -19,6 +19,21 @@ const canonicalHref = locale === "es" ? "/" : "/en/";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem("preferredLocale");
+          var path = window.location.pathname;
+          var isEn = path.startsWith("/en");
+          if (!stored) return;
+          if (stored === "en" && !isEn) {
+            window.location.replace("/en" + (path === "/" ? "/" : path));
+          } else if (stored === "es" && isEn) {
+            window.location.replace(path.replace(/^\/en/, "") || "/");
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/png" href="/logo.png" />
     <title>{title}</title>
     <meta name="description" content={description} />
