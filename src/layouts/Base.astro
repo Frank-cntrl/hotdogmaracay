@@ -1,0 +1,41 @@
+---
+import "../styles/globals.css";
+import { t, type Locale } from "../lib/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const title = t(locale, "meta.title");
+const description = t(locale, "meta.description");
+const alternateLocale: Locale = locale === "es" ? "en" : "es";
+const alternateHref = alternateLocale === "es" ? "/" : "/en/";
+const canonicalHref = locale === "es" ? "/" : "/en/";
+---
+
+<!doctype html>
+<html lang={locale} class="bg-bg-primary">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={`https://hotdogmaracay.nyc${canonicalHref}`} />
+    <link rel="alternate" hreflang={alternateLocale} href={`https://hotdogmaracay.nyc${alternateHref}`} />
+    <link rel="alternate" hreflang={locale} href={`https://hotdogmaracay.nyc${canonicalHref}`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+    <script defer data-domain="hotdogmaracay.nyc" src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body class="min-h-screen">
+    <slot />
+  </body>
+</html>
