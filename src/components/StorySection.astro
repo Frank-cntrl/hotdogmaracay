@@ -1,0 +1,21 @@
+---
+import { t, type Locale } from "../lib/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section id="story" class="bg-bg-primary relative overflow-hidden">
+  <div class="absolute -top-20 -right-20 w-96 h-96 bg-gradient-radial from-accent-orange/15 to-transparent blur-3xl" aria-hidden="true"></div>
+  <div class="max-w-3xl mx-auto px-4 py-20 md:py-28 text-center">
+    <h2 class="font-display text-4xl md:text-6xl uppercase leading-none">
+      {t(locale, "story.heading")}
+    </h2>
+    <p class="mt-6 text-lg text-text-muted leading-relaxed">
+      {t(locale, "story.body")}
+    </p>
+  </div>
+</section>
