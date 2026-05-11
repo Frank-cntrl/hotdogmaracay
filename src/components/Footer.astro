@@ -1,0 +1,30 @@
+---
+import { t, type Locale } from "../lib/i18n";
+import { links } from "../lib/links";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-black border-t border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="text-center md:text-left">
+      <div class="font-display text-accent-yellow text-xl uppercase">Hot Dog Maracay NYC</div>
+      <p class="text-text-muted text-sm mt-1">{t(locale, "footer.tagline")}</p>
+    </div>
+    <div class="flex items-center gap-5 text-sm">
+      <a href={links.instagram} target="_blank" rel="noopener" class="hover:text-accent-orange transition">Instagram</a>
+      <a href={links.tiktok} target="_blank" rel="noopener" class="hover:text-accent-orange transition">TikTok</a>
+      <a href={`mailto:${links.contact.email}`} class="hover:text-accent-orange transition">Email</a>
+    </div>
+  </div>
+  <div class="border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 py-4 text-center text-xs text-text-muted">
+      © {year} Hot Dog Maracay NYC. {t(locale, "footer.rights")}
+    </div>
+  </div>
+</footer>
