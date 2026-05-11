@@ -1,0 +1,58 @@
+---
+import { t, type Locale } from "../lib/i18n";
+import { links } from "../lib/links";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { lat, lng } = links.cart.coords;
+// Public Google Maps embed (no API key)
+const mapSrc = `https://www.google.com/maps?q=${lat},${lng}&hl=${locale}&z=16&output=embed`;
+---
+
+<section id="location" class="bg-bg-elevated">
+  <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <h2 class="font-display text-3xl md:text-5xl uppercase mb-8">
+      {t(locale, "location.heading")}
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="rounded-xl overflow-hidden border border-white/10 aspect-video md:aspect-square">
+        <iframe
+          src={mapSrc}
+          title="Map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-full"
+          style="border:0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="space-y-6">
+        <div>
+          <div class="text-accent-yellow text-xs font-bold uppercase tracking-wider mb-1">
+            {t(locale, "location.addressLabel")}
+          </div>
+          <p class="text-lg">{links.cart.address}</p>
+        </div>
+        <div>
+          <div class="text-accent-yellow text-xs font-bold uppercase tracking-wider mb-1">
+            {t(locale, "location.hoursLabel")}
+          </div>
+          <p class="text-lg">{links.cart.hours}</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href={links.googleMaps} target="_blank" rel="noopener"
+             class="bg-accent-orange text-black font-bold px-5 py-3 rounded-md hover:brightness-110 active:scale-[0.98] transition">
+            {t(locale, "location.directions")}
+          </a>
+          <a href={links.googleReviews} target="_blank" rel="noopener"
+             class="border border-white/30 text-white font-bold px-5 py-3 rounded-md hover:bg-white/5 transition">
+            {t(locale, "location.reviewsLink")}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
