@@ -1,43 +1,78 @@
-# Astro Starter Kit: Minimal
+# Hot Dog Maracay NYC
+
+Bilingual (ES/EN) marketing site for the Venezuelan hot dog cart in Queens.
+Deployed at **https://hotdogmaracay.francces.co**.
+
+## Stack
+
+- [Astro 4](https://astro.build) static site, zero-JS by default
+- [Tailwind CSS](https://tailwindcss.com) for styling
+- TypeScript everywhere
+- Hosted on GitHub Pages via the workflow in `.github/workflows/deploy.yml`
+
+## Local development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev      # http://localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Build & preview production
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run build    # outputs to ./dist
+npm run preview  # serves ./dist at http://localhost:4321
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Test
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```sh
+npm test         # vitest unit tests for src/lib/
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Sanity-check outbound URLs
 
-## 🧞 Commands
+```sh
+npm run check:links
+```
 
-All commands are run from the root of the project, from a terminal:
+Reports HTTP status for every URL declared in `src/lib/links.ts`.
+Note: WhatsApp and TikTok return 4xx to bots — that's expected, not a real failure.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Deploying
 
-## 👀 Want to learn more?
+Pushing to `main` triggers the GitHub Pages workflow. To deploy from scratch:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Push this repo to GitHub.
+2. In **Settings → Pages**, set source to **GitHub Actions**.
+3. In **Settings → Pages → Custom domain**, set `hotdogmaracay.francces.co`.
+4. Add a `CNAME` DNS record on `francces.co`:
+   - **Name:** `hotdogmaracay`
+   - **Value:** `<your-github-username>.github.io`
+5. Push to `main`. The workflow builds and deploys.
+
+The `public/CNAME` file is committed so GitHub Pages keeps the custom domain on each deploy.
+
+## Content gaps (TODO before launch)
+
+These placeholders live in `src/lib/links.ts` and `src/data/menu.json`:
+
+- Exact street address (currently `Queens, NY`)
+- Real business hours
+- Contact email
+- Menu item prices (placeholders)
+- Real food photography (`public/images/menu/`)
+- Real Instagram post screenshots (`public/images/social/`)
+- Three real Google review quotes (currently placeholders in the page files)
+
+## Project layout
+
+```
+src/
+├── components/   # Astro components (Hero, Nav, MenuGrid, etc.)
+├── data/         # menu.json + i18n JSONs
+├── layouts/      # Base.astro (html shell)
+├── lib/          # i18n.ts, links.ts, schema.ts (logic helpers)
+├── pages/        # / (Spanish) + /en/ (English)
+└── styles/       # globals.css
+```
