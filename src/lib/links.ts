@@ -11,8 +11,14 @@ export const links = {
     en: "/menu-en.pdf",
   },
   cart: {
-    // TODO: confirm exact street address (Google Maps blocks scraping; owner to fill in).
-    address: "Queens, NY",
+    address: "85-18 Northern Blvd, Jackson Heights, NY 11372",
+    addressParts: {
+      street: "85-18 Northern Blvd",
+      locality: "Jackson Heights",
+      region: "NY",
+      postalCode: "11372",
+      country: "US",
+    },
     coords: { lat: 40.7556909, lng: -73.882144 },
     hours: [
       { days: { es: "Lun – Jue", en: "Mon – Thu" }, time: "7 PM – 2 AM" },
