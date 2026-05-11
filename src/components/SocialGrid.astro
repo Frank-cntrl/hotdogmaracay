@@ -1,0 +1,45 @@
+---
+import { t, type Locale } from "../lib/i18n";
+import { links } from "../lib/links";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+// Curated grid — replace with real IG screenshot paths when available
+const tiles = [
+  "/images/social/placeholder.svg",
+  "/images/social/placeholder.svg",
+  "/images/social/placeholder.svg",
+  "/images/social/placeholder.svg",
+  "/images/social/placeholder.svg",
+  "/images/social/placeholder.svg",
+];
+---
+
+<section id="social" class="bg-bg-elevated">
+  <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+      <div>
+        <h2 class="font-display text-3xl md:text-5xl uppercase">{t(locale, "social.heading")}</h2>
+        <p class="text-text-muted mt-2">{t(locale, "social.subtitle")}</p>
+      </div>
+      <div class="flex gap-3">
+        <a href={links.instagram} target="_blank" rel="noopener"
+           class="border border-white/20 hover:border-accent-orange px-4 py-2 rounded-md transition">Instagram</a>
+        <a href={links.tiktok} target="_blank" rel="noopener"
+           class="border border-white/20 hover:border-accent-orange px-4 py-2 rounded-md transition">TikTok</a>
+      </div>
+    </div>
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
+      {tiles.map((src) => (
+        <a href={links.instagram} target="_blank" rel="noopener"
+           class="aspect-square overflow-hidden rounded-md bg-bg-primary border border-white/5 hover:opacity-80 transition">
+          <img src={src} alt="Instagram post" class="w-full h-full object-cover" loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
