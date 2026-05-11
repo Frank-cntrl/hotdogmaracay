@@ -17,11 +17,32 @@ const menuPdf = links.menuPdf[locale];
     <h2 class="font-display text-3xl md:text-5xl uppercase mb-8">
       {t(locale, "menu.heading")}
     </h2>
+
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
       {menuData.items.map((item) => (
         <MenuCard locale={locale} item={item} />
       ))}
     </div>
+
+    <div class="mt-12 rounded-xl border border-accent-orange/30 bg-accent-orange/5 p-6">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="font-display text-2xl uppercase text-accent-orange">
+          {locale === "es" ? "Promos" : "Combos"}
+        </span>
+        <span class="text-xs text-text-muted">
+          {locale === "es" ? "(con bebida)" : "(with soda)"}
+        </span>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-3">
+        {menuData.promos.map((p) => (
+          <div class="flex items-center justify-between gap-3 bg-bg-elevated rounded-lg px-4 py-3">
+            <span class="text-sm">{p.name[locale]}</span>
+            <span class="font-bold text-accent-yellow whitespace-nowrap">{p.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
     <div class="mt-8 text-center">
       <a href={menuPdf} target="_blank" rel="noopener"
          class="inline-block text-accent-orange font-bold hover:underline">

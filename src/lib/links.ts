@@ -11,12 +11,14 @@ export const links = {
     en: "/menu-en.pdf",
   },
   cart: {
-    // TODO: confirm exact street address. Coords are from Google Maps redirect.
+    // TODO: confirm exact street address (Google Maps blocks scraping; owner to fill in).
     address: "Queens, NY",
     coords: { lat: 40.7556909, lng: -73.882144 },
-    hours: "Mon–Sun · 11am – 11pm", // TODO: confirm
+    // TODO: confirm exact hours (Google Maps blocks scraping).
+    hours: "Check Google Maps for today's hours",
   },
   contact: {
-    email: "hello@hotdogmaracay.nyc", // TODO: confirm real email
+    phone: "+1 (347) 839-9352",
+    phoneHref: "tel:+13478399352",
   },
 } as const;

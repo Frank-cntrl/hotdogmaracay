@@ -1,84 +1,67 @@
 {
   "items": [
     {
-      "id": "perro-maracay",
-      "name": { "es": "Perro Maracay", "en": "Perro Maracay" },
+      "id": "perro-amarillo",
+      "name": { "es": "Perro Con Amarillo", "en": "Classic Hot Dog" },
       "description": {
-        "es": "El clásico venezolano con todos los toppings.",
-        "en": "The Venezuelan classic with all the toppings."
+        "es": "Salchicha, ensalada rallada, cebolla, papas ralladas, maíz, salsas y queso amarillo.",
+        "en": "Sausage, striped salad, onion, potato chips, corn, sauces, yellow cheese."
       },
-      "price": "$8",
-      "image": "/images/menu/perro-maracay.jpg"
+      "price": "$6.99",
+      "image": "/images/menu/perro-amarillo.jpg"
     },
     {
-      "id": "perro-especial",
-      "name": { "es": "Perro Especial", "en": "Special Dog" },
+      "id": "perro-polaco",
+      "name": { "es": "Perro Polaco", "en": "Polish Hot Dog" },
       "description": {
-        "es": "Versión XL con queso fundido y tocineta.",
-        "en": "XL version with melted cheese and bacon."
+        "es": "Salchicha polaca, tocineta, ensalada rallada, cebolla, papas ralladas, maíz, salsas, queso amarillo y blanco.",
+        "en": "Polish sausage, bacon, striped salad, onion, potato chips, corn, sauces, yellow and white cheese."
       },
-      "price": "$10",
-      "image": "/images/menu/perro-especial.jpg"
+      "price": "$8.99",
+      "image": "/images/menu/perro-polaco.jpg"
     },
     {
-      "id": "salchipapa",
-      "name": { "es": "Salchipapa", "en": "Salchipapa" },
+      "id": "perro-mechada",
+      "name": { "es": "Perro Con Mechada", "en": "Hot Dog with Shredded Meat" },
       "description": {
-        "es": "Papas con salchichas y salsas venezolanas.",
-        "en": "Fries topped with hot dog slices and Venezuelan sauces."
+        "es": "Salchicha, mechada, ensalada rayada, cebolla, papas ralladas, maíz, salsas y queso amarillo.",
+        "en": "Sausage, shredded meat, striped salad, onion, potato chips, corn, sauces, yellow cheese."
       },
-      "price": "$9",
-      "image": "/images/menu/salchipapa.jpg"
+      "price": "$8.99",
+      "image": "/images/menu/perro-mechada.jpg"
     },
     {
-      "id": "cachapa",
-      "name": { "es": "Cachapa", "en": "Cachapa" },
+      "id": "super-perro-maracay",
+      "name": { "es": "Super Perro Maracay", "en": "Hot Dog Maracay NYC" },
       "description": {
-        "es": "Panqueca dulce de maíz con queso de mano.",
-        "en": "Sweet corn pancake with fresh cheese."
+        "es": "Salchicha polaca, tocineta, mechada, ensalada rallada, cebolla, papas ralladas, maíz, salsas, queso amarillo y blanco.",
+        "en": "Polish sausage, bacon, shredded meat, striped salad, onion, potato chips, corn, sauces, yellow and white cheese."
       },
-      "price": "$12",
-      "image": "/images/menu/cachapa.jpg"
-    },
-    {
-      "id": "tequenos",
-      "name": { "es": "Tequeños (6 uds)", "en": "Tequeños (6 pcs)" },
-      "description": {
-        "es": "Dedos de queso frito, el aperitivo venezolano.",
-        "en": "Fried cheese sticks — the Venezuelan appetizer."
-      },
-      "price": "$7",
-      "image": "/images/menu/tequenos.jpg"
-    },
-    {
-      "id": "empanada",
-      "name": { "es": "Empanada", "en": "Empanada" },
-      "description": {
-        "es": "De carne, pollo o queso. Crujiente y dorada.",
-        "en": "Beef, chicken, or cheese. Crispy and golden."
-      },
-      "price": "$5",
-      "image": "/images/menu/empanada.jpg"
-    },
-    {
-      "id": "patacon",
-      "name": { "es": "Patacón", "en": "Patacón" },
-      "description": {
-        "es": "Plátano frito relleno de carne mechada.",
-        "en": "Fried plantain stuffed with shredded beef."
-      },
-      "price": "$13",
-      "image": "/images/menu/patacon.jpg"
-    },
-    {
-      "id": "papas",
-      "name": { "es": "Papas Fritas", "en": "Fries" },
-      "description": {
-        "es": "Crujientes con sal venezolana.",
-        "en": "Crispy with Venezuelan salt."
-      },
-      "price": "$4",
-      "image": "/images/menu/papas.jpg"
+      "price": "$9.99",
+      "image": "/images/menu/super-perro-maracay.jpg"
     }
+  ],
+  "promos": [
+    {
+      "id": "promo-amarillo",
+      "name": { "es": "2 Perros con Amarillo + Soda", "en": "2 Classic Hot Dogs + Soda" },
+      "price": "$13.99"
+    },
+    {
+      "id": "promo-polaco",
+      "name": { "es": "2 Perros Polacos + Soda", "en": "2 Polish Hot Dogs + Soda" },
+      "price": "$16.99"
+    },
+    {
+      "id": "promo-mechada",
+      "name": { "es": "2 Perros con Mechada + Soda", "en": "2 Hot Dogs with Shredded Meat + Soda" },
+      "price": "$16.99"
+    }
+  ],
+  "drinks": [
+    { "id": "soda", "name": { "es": "Refrescos", "en": "Soda" }, "price": "$2" },
+    { "id": "juice", "name": { "es": "Jugos", "en": "Juice" }, "price": "$2" },
+    { "id": "water", "name": { "es": "Agua", "en": "Water" }, "price": "$2" },
+    { "id": "imported", "name": { "es": "Importada", "en": "Imported Soda" }, "price": "$3" }
   ]
 }

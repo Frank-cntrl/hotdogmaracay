@@ -25,4 +25,9 @@ describe("links", () => {
   it("exposes cart coordinates", () => {
     expect(links.cart.coords).toEqual({ lat: 40.7556909, lng: -73.882144 });
   });
+
+  it("exposes the phone number for tel: links", () => {
+    expect(links.contact.phone).toBe("+1 (347) 839-9352");
+    expect(links.contact.phoneHref).toBe("tel:+13478399352");
+  });
 });

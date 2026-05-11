@@ -19,7 +19,7 @@ const year = new Date().getFullYear();
     <div class="flex items-center gap-5 text-sm">
       <a href={links.instagram} target="_blank" rel="noopener" class="hover:text-accent-orange transition">Instagram</a>
       <a href={links.tiktok} target="_blank" rel="noopener" class="hover:text-accent-orange transition">TikTok</a>
-      <a href={`mailto:${links.contact.email}`} class="hover:text-accent-orange transition">Email</a>
+      <a href={links.contact.phoneHref} class="hover:text-accent-orange transition">{links.contact.phone}</a>
     </div>
   </div>
   <div class="border-t border-white/5">
