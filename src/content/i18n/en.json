@@ -1,8 +1,51 @@
 {
+  "meta": {
+    "title": "Hot Dog Maracay NYC — Venezuelan Hot Dogs in Queens",
+    "description": "The flavor of Maracay, parked in Queens. Order via Uber Eats or WhatsApp."
+  },
+  "nav": {
+    "menu": "Menu",
+    "find": "Find Us",
+    "order": "Order"
+  },
   "hero": {
     "tagline": "Venezuelan Hot Dogs in NYC",
     "subtitle": "The flavor of Maracay, made on the street.",
     "ctaOrder": "Order Now",
     "ctaMenu": "See Menu"
+  },
+  "order": {
+    "heading": "Order now",
+    "uberEatsTitle": "Uber Eats",
+    "uberEatsSubtitle": "Delivery in 20–40 min",
+    "whatsappTitle": "WhatsApp",
+    "whatsappSubtitle": "Order direct · faster"
+  },
+  "menu": {
+    "heading": "The Menu",
+    "viewFull": "View full menu →"
+  },
+  "location": {
+    "heading": "Find Us",
+    "addressLabel": "Address",
+    "hoursLabel": "Hours",
+    "directions": "Get Directions →",
+    "reviewsLink": "Leave us a Google review ⭐"
+  },
+  "story": {
+    "heading": "From Maracay, to New York",
+    "body": "We brought the street recipes of Maracay to Queens. Every dog carries that Venezuelan flavor you won't find anywhere else in the city."
+  },
+  "social": {
+    "heading": "Follow Us",
+    "subtitle": "Latest from the cart on Instagram and TikTok"
+  },
+  "reviews": {
+    "heading": "What people say"
+  },
+  "footer": {
+    "tagline": "Venezuelan Hot Dogs · Queens, NY",
+    "contact": "Contact",
+    "rights": "All rights reserved."
   }
 }

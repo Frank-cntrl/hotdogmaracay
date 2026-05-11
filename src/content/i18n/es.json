@@ -1,8 +1,51 @@
 {
+  "meta": {
+    "title": "Hot Dog Maracay NYC — Perros Venezolanos en Queens",
+    "description": "El sabor de Maracay, parqueado en Queens. Ordena por Uber Eats o WhatsApp."
+  },
+  "nav": {
+    "menu": "Menú",
+    "find": "Ubicación",
+    "order": "Ordenar"
+  },
   "hero": {
     "tagline": "Perros Venezolanos en Queens",
     "subtitle": "El sabor de Maracay, hecho en la calle.",
-    "ctaOrder": "Ordenar",
+    "ctaOrder": "Ordenar ahora",
     "ctaMenu": "Ver Menú"
+  },
+  "order": {
+    "heading": "Ordena ahora",
+    "uberEatsTitle": "Uber Eats",
+    "uberEatsSubtitle": "Delivery en 20–40 min",
+    "whatsappTitle": "WhatsApp",
+    "whatsappSubtitle": "Ordena directo · más rápido"
+  },
+  "menu": {
+    "heading": "El Menú",
+    "viewFull": "Ver menú completo →"
+  },
+  "location": {
+    "heading": "Encuéntranos",
+    "addressLabel": "Dirección",
+    "hoursLabel": "Horario",
+    "directions": "Cómo llegar →",
+    "reviewsLink": "Déjanos una reseña en Google ⭐"
+  },
+  "story": {
+    "heading": "Desde Maracay, para Nueva York",
+    "body": "Trajimos las recetas de la calle de Maracay a Queens. Cada perro lleva ese sabor venezolano que no se encuentra en ningún otro lado de la ciudad."
+  },
+  "social": {
+    "heading": "Síguenos",
+    "subtitle": "Lo último del carrito en Instagram y TikTok"
+  },
+  "reviews": {
+    "heading": "Lo que dicen"
+  },
+  "footer": {
+    "tagline": "Perros Venezolanos · Queens, NY",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados."
   }
 }
