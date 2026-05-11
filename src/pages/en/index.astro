@@ -1,0 +1,71 @@
+---
+import Base from "../../layouts/Base.astro";
+import Nav from "../../components/Nav.astro";
+import Hero from "../../components/Hero.astro";
+import OrderCTAs from "../../components/OrderCTAs.astro";
+import MenuGrid from "../../components/MenuGrid.astro";
+import LocationBlock from "../../components/LocationBlock.astro";
+import StorySection from "../../components/StorySection.astro";
+import SocialGrid from "../../components/SocialGrid.astro";
+import ReviewQuote from "../../components/ReviewQuote.astro";
+import Footer from "../../components/Footer.astro";
+import { t, type Locale } from "../../lib/i18n";
+import { links } from "../../lib/links";
+
+const locale: Locale = "en";
+
+const reviews = [
+  { quote: "Best hot dog I've had in Queens. Tastes like home.", author: "Maria G., Google Review" },
+  { quote: "Authentically Venezuelan. The tequeños are amazing.", author: "Carlos R., Google Review" },
+  { quote: "I come every weekend. Fast service, flavorful food.", author: "Laura P., Google Review" },
+];
+
+const restaurantSchema = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: "Hot Dog Maracay NYC",
+  image: "https://hotdogmaracay.nyc/logo.png",
+  servesCuisine: "Venezuelan",
+  priceRange: "$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Queens",
+    addressRegion: "NY",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: links.cart.coords.lat,
+    longitude: links.cart.coords.lng,
+  },
+  url: "https://hotdogmaracay.nyc/en/",
+  sameAs: [links.instagram, links.tiktok],
+};
+---
+
+<Base locale={locale}>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(restaurantSchema)}
+    slot="head"
+  />
+  <Nav locale={locale} />
+  <main>
+    <Hero locale={locale} />
+    <OrderCTAs locale={locale} variant="primary" />
+    <MenuGrid locale={locale} />
+    <LocationBlock locale={locale} />
+    <StorySection locale={locale} />
+    <OrderCTAs locale={locale} variant="secondary" />
+    <SocialGrid locale={locale} />
+    <section id="reviews" class="bg-bg-primary">
+      <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+        <h2 class="font-display text-3xl md:text-5xl uppercase mb-8">{t(locale, "reviews.heading")}</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          {reviews.map((r) => <ReviewQuote quote={r.quote} author={r.author} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} />
+</Base>
