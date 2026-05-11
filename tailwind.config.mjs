@@ -25,6 +25,9 @@ export default {
       boxShadow: {
         cta: "0 8px 24px -6px rgba(255, 107, 0, 0.5)",
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+      },
     },
   },
 };
