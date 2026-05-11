@@ -1,0 +1,40 @@
+---
+import { t, type Locale } from "../lib/i18n";
+import { links } from "../lib/links";
+
+interface Props {
+  locale: Locale;
+  variant?: "primary" | "secondary";
+}
+
+const { locale, variant = "primary" } = Astro.props;
+const heading = t(locale, "order.heading");
+---
+
+<section id="order" class="bg-bg-elevated">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    {variant === "primary" && (
+      <h2 class="font-display text-3xl md:text-5xl uppercase mb-8">
+        {heading}
+      </h2>
+    )}
+    <div class="grid md:grid-cols-2 gap-4">
+      <a href={links.uberEats} target="_blank" rel="noopener"
+         class="group flex items-center justify-between bg-bg-primary border border-white/10 hover:border-accent-orange rounded-xl p-5 transition">
+        <div>
+          <div class="font-display text-2xl uppercase">{t(locale, "order.uberEatsTitle")}</div>
+          <div class="text-text-muted text-sm mt-1">{t(locale, "order.uberEatsSubtitle")}</div>
+        </div>
+        <span class="text-accent-orange text-2xl group-hover:translate-x-1 transition">→</span>
+      </a>
+      <a href={links.whatsapp} target="_blank" rel="noopener"
+         class="group flex items-center justify-between bg-bg-primary border border-white/10 hover:border-accent-orange rounded-xl p-5 transition">
+        <div>
+          <div class="font-display text-2xl uppercase">{t(locale, "order.whatsappTitle")}</div>
+          <div class="text-text-muted text-sm mt-1">{t(locale, "order.whatsappSubtitle")}</div>
+        </div>
+        <span class="text-accent-orange text-2xl group-hover:translate-x-1 transition">→</span>
+      </a>
+    </div>
+  </div>
+</section>
