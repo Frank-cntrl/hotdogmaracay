@@ -1,0 +1,59 @@
+---
+import { t, type Locale } from "../lib/i18n";
+import { links } from "../lib/links";
+import LangToggle from "./LangToggle";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const prefix = locale === "es" ? "" : "/en";
+---
+
+<nav class="sticky top-0 z-50 bg-bg-primary/90 backdrop-blur border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href={`${prefix}/`} class="font-display text-accent-yellow text-lg tracking-tight uppercase">
+      Hot Dog Maracay
+    </a>
+    <div class="hidden md:flex items-center gap-6 text-sm">
+      <a href={`${prefix}/#menu`} class="hover:text-accent-orange transition">{t(locale, "nav.menu")}</a>
+      <a href={`${prefix}/#location`} class="hover:text-accent-orange transition">{t(locale, "nav.find")}</a>
+      <a href={links.uberEats} target="_blank" rel="noopener" class="bg-accent-orange text-black font-bold px-4 py-2 rounded-md hover:brightness-110 transition">
+        {t(locale, "nav.order")} ↗
+      </a>
+      <LangToggle client:idle currentLocale={locale} />
+    </div>
+    <div class="md:hidden flex items-center gap-3">
+      <LangToggle client:idle currentLocale={locale} />
+      <button id="mobile-menu-toggle" type="button" class="text-white text-2xl leading-none" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        ≡
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden border-t border-white/10 bg-bg-primary">
+    <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col gap-4 text-base">
+      <a href={`${prefix}/#menu`} class="py-2 hover:text-accent-orange">{t(locale, "nav.menu")}</a>
+      <a href={`${prefix}/#location`} class="py-2 hover:text-accent-orange">{t(locale, "nav.find")}</a>
+      <a href={links.uberEats} target="_blank" rel="noopener" class="bg-accent-orange text-black font-bold py-3 text-center rounded-md">
+        {t(locale, "nav.order")} ↗
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("hidden") === false;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  // close on anchor click
+  menu?.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => {
+      menu.classList.add("hidden");
+      toggle?.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
