@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hotdogmaracay.francces.co/sitemap-index.xml
