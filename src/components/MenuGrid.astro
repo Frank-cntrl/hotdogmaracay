@@ -1,0 +1,32 @@
+---
+import { t, type Locale } from "../lib/i18n";
+import { links } from "../lib/links";
+import MenuCard from "./MenuCard.astro";
+import menuData from "../data/menu.json";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const menuPdf = links.menuPdf[locale];
+---
+
+<section id="menu" class="bg-bg-primary">
+  <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <h2 class="font-display text-3xl md:text-5xl uppercase mb-8">
+      {t(locale, "menu.heading")}
+    </h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+      {menuData.items.map((item) => (
+        <MenuCard locale={locale} item={item} />
+      ))}
+    </div>
+    <div class="mt-8 text-center">
+      <a href={menuPdf} target="_blank" rel="noopener"
+         class="inline-block text-accent-orange font-bold hover:underline">
+        {t(locale, "menu.viewFull")}
+      </a>
+    </div>
+  </div>
+</section>
