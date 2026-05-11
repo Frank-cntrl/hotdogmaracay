@@ -1,17 +1,71 @@
 ---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import OrderCTAs from "../components/OrderCTAs.astro";
+import MenuGrid from "../components/MenuGrid.astro";
+import LocationBlock from "../components/LocationBlock.astro";
+import StorySection from "../components/StorySection.astro";
+import SocialGrid from "../components/SocialGrid.astro";
+import ReviewQuote from "../components/ReviewQuote.astro";
+import Footer from "../components/Footer.astro";
+import { t, type Locale } from "../lib/i18n";
+import { links } from "../lib/links";
 
+const locale: Locale = "es";
+
+const reviews = [
+  { quote: "El mejor perro caliente que he comido en Queens. Sabe a casa.", author: "María G., Google Review" },
+  { quote: "Auténticamente venezolano. Los teques están increíbles.", author: "Carlos R., Google Review" },
+  { quote: "Vengo todos los fines de semana. Servicio rápido y comida sabrosa.", author: "Laura P., Google Review" },
+];
+
+const restaurantSchema = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: "Hot Dog Maracay NYC",
+  image: "https://hotdogmaracay.nyc/logo.png",
+  servesCuisine: "Venezuelan",
+  priceRange: "$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Queens",
+    addressRegion: "NY",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: links.cart.coords.lat,
+    longitude: links.cart.coords.lng,
+  },
+  url: "https://hotdogmaracay.nyc",
+  sameAs: [links.instagram, links.tiktok],
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base locale={locale}>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(restaurantSchema)}
+    slot="head"
+  />
+  <Nav locale={locale} />
+  <main>
+    <Hero locale={locale} />
+    <OrderCTAs locale={locale} variant="primary" />
+    <MenuGrid locale={locale} />
+    <LocationBlock locale={locale} />
+    <StorySection locale={locale} />
+    <OrderCTAs locale={locale} variant="secondary" />
+    <SocialGrid locale={locale} />
+    <section id="reviews" class="bg-bg-primary">
+      <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+        <h2 class="font-display text-3xl md:text-5xl uppercase mb-8">{t(locale, "reviews.heading")}</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          {reviews.map((r) => <ReviewQuote quote={r.quote} author={r.author} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} />
+</Base>
