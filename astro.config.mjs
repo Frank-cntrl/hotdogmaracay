@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  site: "https://hotdogmaracay.nyc",
+  site: "https://hotdogmaracay.francces.co",
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],

@@ -10,7 +10,7 @@ import SocialGrid from "../../components/SocialGrid.astro";
 import ReviewQuote from "../../components/ReviewQuote.astro";
 import Footer from "../../components/Footer.astro";
 import { t, type Locale } from "../../lib/i18n";
-import { links } from "../../lib/links";
+import { restaurantSchemaJson } from "../../lib/schema";
 
 const locale: Locale = "en";
 
@@ -20,33 +20,14 @@ const reviews = [
   { quote: "I come every weekend. Fast service, flavorful food.", author: "Laura P., Google Review" },
 ];
 
-const restaurantSchema = {
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  name: "Hot Dog Maracay NYC",
-  image: "https://hotdogmaracay.nyc/logo.png",
-  servesCuisine: "Venezuelan",
-  priceRange: "$",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Queens",
-    addressRegion: "NY",
-    addressCountry: "US",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: links.cart.coords.lat,
-    longitude: links.cart.coords.lng,
-  },
-  url: "https://hotdogmaracay.nyc/en/",
-  sameAs: [links.instagram, links.tiktok],
-};
+const schemaJson = restaurantSchemaJson(locale);
 ---
 
 <Base locale={locale}>
   <script
+    is:inline
     type="application/ld+json"
-    set:html={JSON.stringify(restaurantSchema)}
+    set:html={schemaJson}
     slot="head"
   />
   <Nav locale={locale} />
