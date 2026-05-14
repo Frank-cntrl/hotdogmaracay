@@ -50,4 +50,59 @@ const menuPdf = links.menuPdf[locale];
       </a>
     </div>
   </div>
+
+  <div
+    id="menu-lightbox"
+    class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-label={locale === "es" ? "Imagen ampliada" : "Enlarged image"}
+  >
+    <button
+      type="button"
+      id="menu-lightbox-close"
+      aria-label={locale === "es" ? "Cerrar" : "Close"}
+      class="absolute top-4 right-4 text-white text-4xl leading-none hover:text-gray-300 transition-colors"
+    >×</button>
+    <img id="menu-lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain" />
+  </div>
 </section>
+
+<script>
+  const lightbox = document.getElementById("menu-lightbox");
+  const lightboxImg = document.getElementById("menu-lightbox-img") as HTMLImageElement | null;
+  const closeBtn = document.getElementById("menu-lightbox-close");
+
+  const open = (src: string, alt: string) => {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.remove("hidden");
+    lightbox.classList.add("flex");
+    document.body.style.overflow = "hidden";
+  };
+
+  const close = () => {
+    if (!lightbox || !lightboxImg) return;
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll<HTMLButtonElement>("[data-lightbox-src]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const src = btn.dataset.lightboxSrc || "";
+      const alt = btn.dataset.lightboxAlt || "";
+      open(src, alt);
+    });
+  });
+
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) close();
+  });
+  closeBtn?.addEventListener("click", close);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !lightbox?.classList.contains("hidden")) close();
+  });
+</script>

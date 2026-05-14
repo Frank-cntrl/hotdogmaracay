@@ -16,7 +16,13 @@ const { locale, item } = Astro.props;
 const fallback = "/images/menu/placeholder.svg";
 ---
 
-<article class="group relative overflow-hidden rounded-xl bg-bg-elevated border border-white/5 aspect-square">
+<button
+  type="button"
+  data-lightbox-src={item.image}
+  data-lightbox-alt={item.name[locale]}
+  aria-label={item.name[locale]}
+  class="group relative overflow-hidden rounded-xl bg-bg-elevated border border-white/5 aspect-square text-left cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-accent-yellow"
+>
   <img
     src={item.image}
     onerror={`this.onerror=null;this.src='${fallback}'`}
@@ -33,4 +39,4 @@ const fallback = "/images/menu/placeholder.svg";
     </div>
     <p class="text-text-muted text-xs mt-1 line-clamp-2">{item.description[locale]}</p>
   </div>
-</article>
+</button>
