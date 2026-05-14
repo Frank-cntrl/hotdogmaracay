@@ -8,7 +8,7 @@
         "en": "Sausage, striped salad, onion, potato chips, corn, sauces, yellow cheese."
       },
       "price": "$6.99",
-      "image": "/images/menu/perro-amarillo.jpg"
+      "image": "/images/menu/perro-amarillo.webp"
     },
     {
       "id": "perro-polaco",
@@ -18,7 +18,7 @@
         "en": "Polish sausage, bacon, striped salad, onion, potato chips, corn, sauces, yellow and white cheese."
       },
       "price": "$8.99",
-      "image": "/images/menu/perro-polaco.jpg"
+      "image": "/images/menu/perro-polaco.webp"
     },
     {
       "id": "perro-mechada",
@@ -28,7 +28,7 @@
         "en": "Sausage, shredded meat, striped salad, onion, potato chips, corn, sauces, yellow cheese."
       },
       "price": "$8.99",
-      "image": "/images/menu/perro-mechada.jpg"
+      "image": "/images/menu/perro-mechada.webp"
     },
     {
       "id": "super-perro-maracay",
@@ -38,7 +38,7 @@
         "en": "Polish sausage, bacon, shredded meat, striped salad, onion, potato chips, corn, sauces, yellow and white cheese."
       },
       "price": "$9.99",
-      "image": "/images/menu/super-perro-maracay.jpg"
+      "image": "/images/menu/super-perro-maracay.webp"
     }
   ],
   "promos": [
